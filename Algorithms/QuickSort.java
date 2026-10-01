@@ -1,6 +1,7 @@
 import java.util.Arrays;
-
+import java.util.Random;
 public class QuickSort {
+    private static final Random rand = new Random();
     public static void main(String[] args) {
         int[] data = {10, 7, 8, 9, 1, 5};
         quickSort(data, 0, data.length - 1);
@@ -19,6 +20,11 @@ public class QuickSort {
     }
 
     public static int partition(int[] arr, int low, int high){
+        
+        int randomIndex = low + rand.nextInt(high - low + 1);
+
+        
+        swap(arr, low, randomIndex);
         int pivot = arr[low];
         int i = low; 
         int j = high; 
